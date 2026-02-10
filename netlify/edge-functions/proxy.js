@@ -18,13 +18,14 @@ export default async (req, context) => {
         return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
     }
 
+    let rawText;
     try {
         const contentType = req.headers.get("content-type") || "";
         if (!contentType.includes("application/json")) {
             throw new Error(`Expected JSON, but got ${contentType}`);
         }
 
-        const rawText = await req.text();
+        rawText = await req.text();
         console.log("Raw body received:", rawText);
     } catch (e) {
         return new Response(
@@ -40,8 +41,8 @@ export default async (req, context) => {
 
     try {
         // const body = await req.json();
-        body = JSON.parse(text); // Пытаемся превратить в объект
-        console.log("Raw body received оыщт:", body);
+        body = JSON.parse(rawText); // Пытаемся превратить в объект
+        console.log("Raw body received json:", body);
         const geminiResponse = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
