@@ -10,7 +10,8 @@ export default async (req, context) => {
 
     const GEMINI_API_KEY = Netlify.env.get("GEMINI_API_KEY");
     const APP_SECRET_TOKEN = Netlify.env.get("APP_SECRET_TOKEN");
-    const GEMINI_URL = "https://generativelanguage.googleapis.com";
+    const GEMINI_URL =
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
     // Authorization check
     const authHeader = req.headers.get("x-app-token");
@@ -49,7 +50,7 @@ export default async (req, context) => {
             body: JSON.stringify(body),
         });
 
-        console.log("GEMINI KEY:", GEMINI_API_KEY);
+        console.log("GEMINI KEY:", GEMINI_API_KEY, GEMINI_URL);
 
         // const data = await geminiResponse.json();
         const data = await geminiResponse.text();
