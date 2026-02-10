@@ -1,0 +1,8 @@
+*.swp
+*.tmp
+*.log
+.env*
+
+node_modules/
+
+.vercel

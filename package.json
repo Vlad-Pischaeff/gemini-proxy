@@ -1,0 +1,35 @@
+{
+    "name": "gemini-proxy",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "api/proxy.js",
+    "scripts": {
+        "dev": "vercel dev",
+        "deploy": "vercel --prod",
+        "lint": "eslint . --ext .ts,.js",
+        "lint:fix": "eslint . --ext .ts,.js --fix",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "openai": "^5.23.1"
+    },
+    "devDependencies": {
+        "@vercel/node": "^5.3.24",
+        "eslint": "^9.12.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "prettier": "^3.3.3"
+    },
+    "eslintConfig": {
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ]
+        }
+    }
+}

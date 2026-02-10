@@ -1,0 +1,10 @@
+{
+    "editor.tabSize": 4, // Ваш размер табуляции
+    "editor.insertSpaces": true, // Использовать пробелы вместо табуляции (если требуется)
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"]
+}
