@@ -1,4 +1,5 @@
 export default async (req, context) => {
+    console.log("..1.req", req);
     // Netlify processes only POST requests for this function
     if (req.method !== "POST") {
         return new Response(JSON.stringify({ error: "Method not allowed" }), {
@@ -26,6 +27,9 @@ export default async (req, context) => {
         });
 
         const data = await geminiResponse.json();
+
+        console.log("..1.data", data);
+
         return new Response(JSON.stringify(data), {
             status: geminiResponse.status,
             headers: { "Content-Type": "application/json" },
