@@ -1,0 +1,20 @@
+curl -X POST https://gemini-proxy-phi-ebon.vercel.app/api/proxy \
+  -H "Content-Type: application/json" \
+  -H "x-app-token: AIzaSyDcNYzZPR8Z689J9fePbHNfie0fZBvqFg8" \
+  -d '{
+    "contents": [{
+      "parts": [{"text": "Hello, respond with JSON: {\"status\": \"ok\"}"}]
+    }],
+    "generationConfig": {
+      "response_mime_type": "application/json"
+    }
+  }'
+  
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCenug-qp_1SK5QgYc5ynOYtbcfeNnZUrc \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[{"text": "Напиши слово ПРОВЕРКА в формате JSON: {\"result\": \"...\"}"}]
+      }],
+    }'
