@@ -18,6 +18,26 @@ export default async (req, context) => {
         return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
     }
 
+    let body;
+    try {
+        const contentType = req.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+            throw new Error(`Expected JSON, but got ${contentType}`);
+        }
+
+        const text = await req.text(); // Сначала читаем как текст
+        console.log("Raw body received:", text); // ВТОРОЙ ЛОГ
+        body = JSON.parse(text); // Пытаемся превратить в объект
+    } catch (e) {
+        return new Response(
+            JSON.stringify({
+                error: "Invalid JSON in request",
+                details: e.message,
+            }),
+            { status: 400 },
+        );
+    }
+
     try {
         const body = await req.json();
         const geminiResponse = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
