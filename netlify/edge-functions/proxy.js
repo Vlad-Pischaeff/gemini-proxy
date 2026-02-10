@@ -49,7 +49,10 @@ export default async (req, context) => {
             body: JSON.stringify(body),
         });
 
-        const data = await geminiResponse.json();
+        console.log("GEMINI KEY:", GEMINI_API_KEY);
+
+        // const data = await geminiResponse.json();
+        const data = await geminiResponse.text();
 
         console.log("..1.data", data);
 
