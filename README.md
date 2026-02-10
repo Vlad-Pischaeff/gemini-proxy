@@ -8,7 +8,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## !!!
 
-Перед запуском нужно установить переменную окружения GEMINI_API_KEY не в .env, а 
+Перед запуском нужно установить переменную окружения GEMINI_API_KEY, APP_SECRET_TOKEN не в .env, а 
 на странице проекта в Vercel
 
 ## развертывание вручную
