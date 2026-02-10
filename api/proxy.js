@@ -4,8 +4,10 @@ export const config = {
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const APP_SECRET_TOKEN = process.env.APP_SECRET_TOKEN; // Твой секрет
+// const GEMINI_URL =
+//     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 const GEMINI_URL =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
 export default async function handler(req) {
     if (req.method !== "POST") {
